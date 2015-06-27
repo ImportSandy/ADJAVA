@@ -1,0 +1,31 @@
+<web-app>
+<servlet>
+ <servlet-name> Srv_NumberHandler</servlet-name>
+ <servlet-class> NumberHandler</servlet-class>
+</servlet>
+<servlet>
+ <servlet-name> Srv_AddNumbers</servlet-name>
+ <servlet-class> AddNumbers</servlet-class>
+</servlet>
+<servlet>
+ <servlet-name> Srv_SubtractNumbers</servlet-name>
+ <servlet-class> SubtractNumbers</servlet-class>
+</servlet>
+
+
+<servlet-mapping>
+ <servlet-name> Srv_NumberHandler</servlet-name>
+ <url-pattern>/handleNumbers</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+ <servlet-name> Srv_AddNumbers</servlet-name>
+ <url-pattern>/AddNumbers</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+ <servlet-name> Srv_SubtractNumbers</servlet-name>
+ <url-pattern>/SubtractNumbers</url-pattern>
+</servlet-mapping>
+
+</web-app>

@@ -1,0 +1,129 @@
+RMI : Remote Method Invocation
+
+RMI applications are comprised of two separate 
+java programs: 
+* Server 
+* Client. 
+
+Typically Server Application 
+1) Creates Remote objects. 
+2) Makes references to them accessible.
+3) Waits for clients to invoke methods on 
+these Remote objects. 
+
+Typically Client application 
+1) Gets a Remote reference to some Remote object. 
+2) Invokes methods on them. 
+
+Such an application is sometimes referred to 
+as a Distributed Object Application. 
+---------------------------------------------------------------
+
+RMI registry is RMI's simple naming 
+facility that allows a Server to register 
+its Remote object and associate a 
+name with it.
+
+The client looks up for the Remote 
+object by its name in the RMI registry 
+and then invokes methods on it. 
+
+Details of communication between 
+Remote objects are handled by RMI.
+For the programmer, remote communication 
+looks like a standard Java method 
+invocation.
+---------------------------------------------------------------
+
+Remote Objects
+----------------
+An object becomes Remote by 
+implementing a Remote interface 
+or its child interface, which has 
+the following characteristics. 
+
+1) A Remote interface extends the 
+interface java.rmi.Remote. 
+2) Each method of the interface 
+declares java.rmi.RemoteException 
+in its throws clause.
+
+RMI treats a remote object 
+differently from a nonremote object, 
+when the object is passed from one 
+virtual machine to another. 
+
+Rather than making a copy of the 
+implementation object in the 
+receiving virtual machine, RMI 
+passes a remote stub for a remote 
+object. 
+
+The stub acts as the local representative, 
+or proxy, for the Remote object and basically 
+is, to the caller, the remote reference. 
+
+The caller invokes a method on the local stub, 
+which is responsible for carrying out the method 
+call on the remote object. 
+
+A stub for a remote object implements 
+the same set of remote interfaces that the 
+remote object implements. 
+
+This allows a stub to be cast to any of 
+the interfaces that the remote object 
+implements.
+
+However, this also means that only those 
+methods defined in a remote interface are 
+available to be called in the receiving 
+virtual machine. 
+
+---------------------------------------------------------------
+UnicastRemoteObject is a convenience class, 
+defined in the RMI public API, that is used
+as a superclass for remote object implementations.
+ 
+The superclass UnicastRemoteObject supplies
+implementations for constructors and methods 
+used to export a remote object, i.e. make the 
+remote object available to receive incoming 
+calls from clients. 
+
+---------------------------------------------------------------
+The Naming class provides methods for storing
+and obtaining references to remote objects in 
+a remote object registry.
+
+Each method of the Naming class takes as one 
+of its arguments a name that is a String
+in URL format of the form: 
+rmi://host:port/name
+where 
+* rmi is the protocol
+* host is the host (remote or local) 
+where the registry is located
+* port is the port number on which the 
+registry accepts calls
+* name is a simple string uninterpreted by 
+the registry. 
+
+Both host and port are optional. 
+If host is omitted, the host defaults to the local host. 
+If port is omitted, then the port defaults to 1099, 
+the "well-known" port that RMI's registry uses. 
+
+Binding a name for a remote object is associating
+or registering a name for a remote object that 
+can be used at a later time to look up that remote 
+object. 
+
+A remote object can be associated with a name using 
+the Naming class's bind or rebind methods. 
+
+Once a remote object is registered (bound) with 
+the RMI registry on the local host, callers on a 
+remote (or local) host can lookup the remote 
+object by name, obtain its reference, and then 
+invoke remote methods on the object. 

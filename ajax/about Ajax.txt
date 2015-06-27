@@ -1,0 +1,17 @@
+AJAX (Asynchronous JavaScript and XML )
+
+AJAX is a mechanism of exchanging data 
+with a server, and updating parts of a 
+web page - without reloading the whole page.
+
+AJAX updates a web page synchronously or
+asynchronously by exchanging small amounts  
+of data with the server behind the scenes. 
+
+AJAX uses a combination of:
+ * XMLHttpRequest object (to exchange data asynchronously with a server)
+ * JavaScript/DOM (to display/interact with the information)
+ * CSS (to style the data)
+ * XML/HTML/JSON/PLAIN TEXT (for transferring data)
+
+See the diagram and code 

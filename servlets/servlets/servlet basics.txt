@@ -1,0 +1,179 @@
+Java Servlets
+     
+A servlet is a Java class that 
+can be plugged into a Java-enabled 
+web server to provide custom 
+services. 
+
+Servlets are designed to work 
+within a request/response 
+processing model.
+In a request/response model, 
+a client sends a request 
+message to a server and the 
+server responds by sending 
+back a reply message. 
+
+Requests can come in the form of an 
+  HTTP
+  URL,
+  FTP,
+or a custom protocol. 
+
+The Servlet Life Cycle
+--------------------
+Servlets run on the web server 
+platform as part of the same 
+process as the web server 
+itself. 
+
+The web server is responsible 
+for initializing, invoking, and 
+destroying each servlet instance. 
+
+A web server communicates with 
+a servlet through a simple interface, 
+javax.servlet.Servlet. 
+
+This interface consists of three 
+main methods: 
+ init() 
+ service() 
+ destroy() 
+and two ancillary methods: 
+ getServletConfig() 
+ getServletInfo()
+
+The init() Method
+When a servlet is first loaded, 
+its init() method is invoked. 
+This allows the servlet to perform any startup 
+processing such as opening files or  establishing 
+connections to their servers. 
+
+The init() method is guaranteed 
+to finish before any other calls 
+are made to the servlet --such 
+as a call to the service() method. 
+
+Note that init() will only be called once; 
+it will not be called again unless the 
+servlet has been unloaded and then 
+reloaded by the server. 
+
+The init() method takes one argument, 
+a reference to a ServletConfig object 
+which provides initialization arguments 
+for the servlet. 
+
+
+The service() Method
+The service() method is the 
+heart of the servlet. Each 
+request message from a client 
+results in a single call to the 
+servlet's service() method. 
+
+The service() method reads 
+the request, processes and 
+produces the response 
+message from its two 
+parameters: 
+* ServletRequest
+* ServletResponse
+
+A ServletRequest object 
+contains data from the client. 
+
+The data consists of name/value 
+pairs of parameters and an 
+InputStream. 
+Several methods are provided that return the client's parameter 
+information. The InputStream from the client can be obtained via the 
+getInputStream() method. This method returns a ServletInputStream, 
+which can be used to get additional data from the client. 
+
+If you are interested in processing character-level data instead of byte-level
+data, you can get a BufferedReader instead with getReader(). 
+
+A ServletResponse represents the servlet's reply back to the client. 
+When preparing a response, the method setContentType() is called 
+first to set the MIME type of the reply. Next, the method 
+getOutputStream() or getWriter() can be used to obtain a 
+ServletOutputStream or PrintWriter, respectively, to send data back to 
+the client. 
+
+The service() method's job is 
+conceptually simple--it creates 
+a response for each client 
+request sent to it from the 
+host server. 
+
+However, it is important to 
+realize that there can be 
+multiple service requests being 
+processed at once. 
+
+If your service method requires 
+any outside resources,
+such as files, databases, or 
+some external data, you must 
+ensure that resource access 
+is thread-safe.
+
+The destroy() Method
+
+The destroy() method is called to allow your servlet to clean up any 
+resources (such as open files or database connections) before the 
+servlet is unloaded. If you do not require any clean-up operations, 
+this can be an empty method. 
+
+The server waits to call the destroy() method until either all service calls
+ are complete, or a certain amount of time has passed. This means that
+ the destroy() method can be called while some longer-running 
+service() methods are still running. It is important that you write your 
+destroy() method to avoid closing any necessary resources until 
+all service() calls have completed. 
+
+Sample Servlet
+The code below implements a simple servlet that returns a static 
+HTML page to a browser. This example fully implements the 
+Servlet interface. 
+
+import java.io.*;
+import javax.servlet.*;
+
+public class SampleServlet implements Servlet 
+{
+  private ServletConfig config;
+  public void init (ServletConfig config)
+    throws ServletException {
+    this.config = config;
+  }
+
+  public void destroy() {} // do nothing
+  
+  public ServletConfig getServletConfig() {
+    return config;
+  }
+  
+  public String getServletInfo() {
+    return "A Simple Servlet";
+  }
+  
+  public void service (ServletRequest req,
+    ServletResponse res  ) throws ServletException, IOException  {
+    res.setContentType( "text/html" );
+    PrintWriter out = res.getWriter();
+    out.println( "<html>" );
+    out.println( "<head>" );
+    out.println( "<title>A Sample Servlet</title>" );
+    out.println( "</head>" );
+    out.println( "<body>" );
+    out.println( "<h1>A Sample Servlet</h1>" );
+    out.println( "</body>" );
+    out.println( "</html>" );
+    out.close();
+  }
+}
+ 

@@ -1,0 +1,7 @@
+url when submit method = post
+----------------------------
+http://localhost:8989/numbers/handleNumbers
+
+url when submit method = get
+----------------------------
+http://localhost:8989/numbers/handleNumbers?n1=1&n2=2&bttnSubmit=Submit

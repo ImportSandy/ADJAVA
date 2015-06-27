@@ -1,0 +1,45 @@
+InetAddress represents an IP address,
+which is used by IP, the lower-level 
+protocol on which protocols like TCP 
+and UDP are built.
+
+A socket is one endpoint of a two-way 
+communication link between two programs 
+running on the network. 
+
+A datagram socket is the sending or 
+receiving point for a packet delivery service. 
+Each packet sent or received on a datagram 
+socket is individually addressed and routed.
+
+A datagram is an independent, 
+self-contained message sent over the network 
+whose arrival, arrival time, and content 
+are not guaranteed. 
+
+----------------------------------
+In computer networking, multicast is the 
+delivery of a message or information to 
+a group of destination computers simultaneously 
+in a single transmission from the source 
+creating copies automatically if the 
+topology of the network requires it.
+
+
+A MulticastSocket is useful for sending
+and receiving IP multicast packets. 
+
+A MulticastSocket is a (UDP like) DatagramSocket, 
+with additional capabilities for joining 
+"groups" of multicast hosts on the network. 
+
+A multicast group is specified by a 
+class D IP address and by a standard
+UDP port number. 
+Class D IP addresses are in the range 
+224.0.0.0 to 239.255.255.255, inclusive. 
+
+The address 224.0.0.0 is reserved and 
+should not be used. 
+
+

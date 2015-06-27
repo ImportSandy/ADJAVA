@@ -1,0 +1,44 @@
+Servlets
+---------
+Servlets are java classes that implement
+the Servlet interface or extend the
+HttpServlet class.
+
+Servlets are used by the web server to
+process web client requests and to generate
+response.
+
+Variables : Local or Member
+--------------------------
+Known that to use a class it must be instantaited.
+
+For n users of the web application the web server
+will create a single object of the servlets.
+so member variables of the servlet class are 
+not thread safe.
+
+On users request the web server creates
+a new thread and calls the service() ( doGet() 
+or doPost() down in hierarchy) method of
+the servlet, for processing.
+
+Known that local variables are allocated
+(in the stack segment) per call of a method.
+So local variables of the service() or doGet() 
+or doPost() will be thread safe.
+
+ServletConfig
+-------------
+ServletConfig object is used to hold configuration 
+information about a servlet.
+The information may be a connection string, a file name, ...
+
+It is one per servlet.
+
+N users of the same servlet will have the 
+same config object.
+
+The config object is created by web server 
+(tomcat) after reading the DD file and the 
+object is sent to the servlets init method 
+which stores the object.

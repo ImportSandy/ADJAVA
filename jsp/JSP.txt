@@ -1,0 +1,76 @@
+JSP : Java Server Pages
+-----------------------
+JSP's are text-based documents that 
+execute as servlets but allow a more 
+natural approach for creating web content. 
+
+Servlets and JSP's can be used interchangeably.
+
+A JSP has 7 types of tags:
+----------------------------------------------------------------------------
+1) Directive Tags
+ -page : 
+  <%@page import= "java.io.*;"  errorPage="error.jsp" ... %>
+  for page level settings like : buffer, session, error page, imports, extends, ...
+
+ -include : 
+  <%@include page = "q.html"%>
+  for including the content of some html/jsp document in this page (compile time include)
+
+ -taglib : 
+  <%@ taglib prefix="my" uri="..." %>
+  for use of some custom tags in this page
+----------------------------------------------------------------------------
+*Declaration Tag : 
+ <%!
+  String getProjectHeading()
+  {
+     return "Online Examination System";
+  }
+  %>
+
+  Supports definition of member methods and 
+  member variables for the class (servlet) 
+  generated from this JSP
+  
+----------------------------------------------------------------------------  
+*Action Tags
+ <jsp:include page="a.jsp"/>
+ Readymade tags with specific purpose
+----------------------------------------------------------------------------
+*Scriptlet Tag 
+ <%
+   all java code here
+   no function definitions
+   no member variable declarations
+ %>
+ 
+ for embedding java code in a JSP
+ 
+----------------------------------------------------------------------------
+*HTML Tags
+  <h1>JSP</h1>
+  for generating web content
+
+----------------------------------------------------------------------------
+*Comment Tag : 
+  <%--  	
+	single 
+ 	to multiline 
+	comments inside 
+   --%>
+  for programmer remarks
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+*Expression Tag : 
+  <%= fnThatReturnsAValue()%>
+  <%= a+b%>
+  <%= variable%>
+
+  Outputs the content to the web client
+
+----------------------------------------------------------------------------
+
+A JSP has direct access to all the server side objects.
+

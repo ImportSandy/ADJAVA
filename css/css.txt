@@ -1,0 +1,114 @@
+CSS stands for Cascading Style Sheets
+Styles define how to display HTML elements
+
+A Style Sheet may be
+------------------------------------------------------
+* Inline
+An inline style adds the style attribute to 
+the relevant tag. The style attribute can 
+contain any CSS property.
+
+<h1 style = "color:red;">THIS IS H1 IN RED<h1>
+------------------------------------------------------
+
+* Internal
+An internal style sheet should be used 
+when a single document has a unique style. 
+One must define internal styles in the 
+head section of an HTML page, inside the 
+<style> tag.
+
+<html>
+....
+<head>
+...
+ <style>
+    h1
+    {
+      color:blue;
+    }
+    ....
+ </style>
+...
+</head>
+<body>
+  .....
+</body>
+</html>
+
+------------------------------------------------------
+* External
+An external style sheet is ideal when the 
+style is applied to many pages. With an 
+external style sheet, you can change 
+the look of an entire Web site by changing 
+just one file.
+Each page must include a link to the style 
+sheet with the <link> tag. The <link> tag 
+goes inside the head section:
+ 
+<head>
+ <link rel="stylesheet"  href="external.css">
+</head>
+------------------------------------------------------
+
+When there are more than one styles 
+specified for an HTML element all the 
+styles will "cascade" into a new "virtual" 
+style sheet using the following priority:
+ 1.Inline style (inside an HTML element)
+ 2.Internal style sheet (in the head section)
+ 3.External style sheet
+ 4.Browser default
+ 
+So, an inline style (inside an HTML element) 
+has the highest priority, which means that it 
+will override a style defined inside the <head> 
+tag, or in an external style sheet, or in a 
+browser (a default value).
+
+CSS Syntax
+------------ 
+A CSS rule set consists of 
+  * A selector 
+  * A declaration block:
+Example
+h1 {color:blue; font-size:18px; }
+
+A selector may be
+1) Element Selector
+The element selector selects elements 
+based on the element name.
+Example:
+ See example above.
+
+2) ID Selector
+The id selector uses the id attribute of 
+an HTML tag to find the specific element.
+Example:
+
+#para1 
+{
+     text-align: center;
+     color: red;
+} 
+
+3) class selector
+The class selector finds and styles the 
+elements with the specific class applied.
+
+Example:
+.center 
+{
+    text-align: center;
+    color: red;
+} 
+
+To limit specific HTML elements to be affected by a class.
+ 
+p.center 
+{
+    text-align: center;
+    color: red;
+} 
+ 

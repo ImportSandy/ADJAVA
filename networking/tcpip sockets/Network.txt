@@ -1,0 +1,54 @@
+Network
+---------
+A network is a communication channel
+set between inter-connected computers
+or devices.
+
+Network Programming
+-------------------
+Network Programming is building applications
+that utilize a network for providing and
+consuming services.
+
+A networked application is build up of
+two modules :
+1) Server : A server is an application 
+that hosts services on a network.
+2) Client : A client is an application that
+consumes services on a network.
+
+Role of a Server
+----------------
+1) Define the service
+2) Open a port.
+3) In a new thread 
+   3.1) Accept connections on the port.
+   3.2) Per connection create a thread
+         3.2.1) Process the client request
+         3.2.2) Close the connection
+   3.3) Go to 3.1) or 4)
+4) Close the port
+
+
+Role of a Client
+----------------
+1) Request a connection
+2) Send Input
+3) Recieve Output
+4) Render/Use the Output
+5) Either goto 2) or 6)
+6) Close the connection
+
+IP-Address
+-----------
+IP-Address is a value that uniquely
+represents a computer or device that
+is on network.
+
+
+Port
+-----
+A port is a number that uniquely represents
+a service that runs on a Server.
+It also acts as a connection end point
+between the client and the service.

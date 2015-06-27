@@ -1,0 +1,16 @@
+An application that uses Datagrams for networking defines
+2 modules
+* DatagramSender
+* DatagramReceiver
+
+Designing A Datagram Sender
+ * Create a DatagramSocket
+ * Create a DatagramPacket as follows :
+   DatagramPacket = {msg, msg len, ip, port}
+ * Send the DatagramPacket using the DatagramSocket
+
+Designing A Datagram Receiver
+ * Create a DatagramSocket
+ * Create a DatagramPacket as follows :
+   DatagramPacket = {buffer, buffer len}
+ * Receive the DatagramPacket using the DatagramSocket
