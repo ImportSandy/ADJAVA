@@ -1,0 +1,10 @@
+create an environment variable
+named JAVA_HOME
+its value must be location of jdk
+say, c:\program files\java\jdk1.7
+
+create another environment variable
+named CATALINA_HOME
+its value must be location of tomcat
+say, F:\software\apache-tomcat-7
+

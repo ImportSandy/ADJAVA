@@ -1,0 +1,47 @@
+USEBEAN
+----------
+<jsp:useBean id="vldt" scope="page" class="threeT.Validator" />
+
+<jsp:usebean ... /> is an action tag.
+
+It creates/fetches an object of the
+specified class and makes it referable
+using the id.
+The life of the object will be as per
+the scope.
+
+SETPROPERTY
+--------------
+<jsp:setProperty name="vldt" property="*"/>
+name="vldt" 
+property="*"
+
+setProperty is an action tag.
+It will
+1) read all (property = *) the request parameters
+2) call setXXX(param) on id : vldt
+Method name will be generated from
+request parameter names.
+Method parameters will be fetched 
+from request parameter values.
+
+setProperty takes 4 attributes
+1) name
+2) param
+3) value
+4) property
+
+name : indicates name of the java bean
+param : indicates name of the req parameter in case property and param have different names.
+value : indicates a preset value to be used
+property : indicates name of the property in the javabean
+
+
+FORWARD
+-----------
+
+<jsp:forward page = "name" />
+Forwards the request processing to
+named jsp/servlet.
+It is jsp equivalent of 
+  requestDispatcher.forward()

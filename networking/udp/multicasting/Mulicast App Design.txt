@@ -1,0 +1,17 @@
+A Mulitcasting application defines 
+2 modules
+* Multicast Datagram Sender
+* Multicast Datagram Receiver
+
+Designing A Multicast Datagram Sender
+ * Create a MulticastSocket
+ * Create a DatagramPacket as follows :
+   DatagramPacket = {msg, msg len, ipOfClassD, portOfVirtualHost}
+ * Send the DatagramPacket using the MulticastSocket
+
+Designing A Multicast Datagram Receiver
+ * Create a MulticastSocket(portOfVirtualHost).
+ * Using MulticastSocket join group (ipOfClassD of virtual host)
+ * Create a DatagramPacket as follows :
+   DatagramPacket = {buffer, buffer len}
+ * Receive the DatagramPacket using the DatagramSocket

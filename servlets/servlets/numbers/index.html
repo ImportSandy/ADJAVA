@@ -1,0 +1,44 @@
+<html>
+<head>
+ <script>
+  function check()
+  {
+   var a, b;
+   a = document.f.n1.value;
+   b = document.f.n2.value;
+ 
+   if(a == "")
+   {
+    alert("Missing value of number1");
+    return false; 
+   }
+   if(b == "")
+   {
+    alert("Missing value of number2");
+    return false;
+   }
+
+   return true;
+  }
+ </script>
+</head>
+<body>
+ <h1> Session Handling </h1>
+ <form name = "f"  action = "handleNumbers" method = "post" onsubmit = "return check()">
+ <table>
+  <tr> 
+    <td> Enter First Number </td>
+    <td> <input type = "number" name = "n1" ></td>
+  </tr>
+  <tr> 
+    <td> Enter Second Number </td>
+    <td> <input type = "number" name = "n2" ></td>
+  </tr>
+  <tr> 
+    <td> &nbsp;</td>
+    <td> <input type = "submit" value = "Submit" name = "bttnSubmit"></td>
+  </tr>
+ </table>
+ </form>
+</body>
+</html>

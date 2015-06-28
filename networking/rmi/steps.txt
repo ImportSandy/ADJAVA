@@ -1,0 +1,12 @@
+Steps to execute RMI Application
+
+1) compile the child interface of Remote
+2) compile the server
+3) compile the client
+After success
+4) open dos shell and change to the directory where server will be executed from
+5) at the dos prompt : dos> rmiregistry
+6) open another dos shell and change to the directory where server will be executed from
+7) at the dos prompt : dos> java MathServer 
+8) open another dos shell and change to the directory where client will be executed from
+9) at the dos prompt : dos> java MathClient 

@@ -1,0 +1,8 @@
+3 or n tier approach to web application
+development acts on the principle of
+separating the
+UI, Processing and Storage layers.
+
+By this method, the application's
+maintainance, reuse, adaption to 
+new devices becomes easy and fast.
